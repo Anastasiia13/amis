@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct abitur_info {
+    char first_name[30];
+    char last_name[30];
+    char home_town[30];
+    struct faculty_info *FACULTY_INFO;
+    int result_zno;
+    int age;
+  }abitur_info;
+
+typedef struct univer_info {
+    char name[30];
+    char adress[30];
+    float entrance_result;
+  }univer_info;
+
+typedef struct faculty_info {
+    char name[30];
+    int studying_price;
+    int budg_places;
+    int total_places;
+    struct univer_info *UNIVER_INFO;
+  }faculty_info;
+
+typedef struct documents {
+    char type[30];
+    struct abitur_info *ABITUR_INFO;
+  }documents;
+
+typedef struct dorm {
+    char adress[30];
+    int students_capacity;
+    struct abitur_info *ABITUR_INFO;
+    }dorm;
+
+int getint(){
+    int k;
+    while(scanf("%f",&k) != 1)
+        {
+            printf("      Please try again. Invalid input: ");
+        }
+    return k;
+    }
+
+char *getstring() {
+    char str[30];
+
+          while (strlen(str>30)) {
+          printf(" Too many symbols! Try again: ");
+        }
+        scanf("%s", str);
+    return str;
+}
+
+
+int main()
+{
+    char * str;
+    int * number;
+    struct abitur_info *abitur=NULL;
+    struct univer_info *univer=NULL;
+    struct faculty_info *faculty=NULL;
+
+        abitur=(struct abitur_info *)malloc(sizeof(struct abitur_info));
+        printf("\nEnter your first name:");
+        str=getstring();
+        free(str);
+        printf("\nEnter your last name:");
+        str=getstring();
+        free(str);
+        printf("\nEnter your home town:");
+        str=getstring();
+        free(str);
+        printf("\nEnter your age:");
+        number=getint();
+        free(number);
+        printf("\nEnter your ZNO result:");
+        number=getint();
+        free(number);
+
+        free(abitur);
+        system("cls");
+
+        univer=(struct univer_info *)malloc(sizeof(struct univer_info));
+        printf("\nEnter university name:");
+        str=getstring();
+        free(str);
+        printf("\nEnter university adress:");
+        str=getstring();
+        free(str);
+        printf("\nEnter university average entrance result:");
+        number=getint();
+        free(number);
+
+        free(univer);
+        system("cls");
+
+
+        faculty=(struct faculty_info *)malloc(sizeof(struct faculty_info));
+        printf("\nEnter faculty name:");
+        str=getstring();
+        free(str);
+        printf("\nEnter studying price:");
+        number=getint();
+        free(number);
+        printf("\nEnter amount of budget places:");
+        number=getint();
+        free(number);
+        printf("\nEnter total amount of places:");
+        number=getint();
+        free(number);
+
+        free(faculty);
+        return 0;
+
+}
+
